@@ -9,7 +9,9 @@ app.use(express.json());
 
 /* ================= DB ================= */
 
-const db = new sqlite3.Database("./news.db");
+/* ================= DB ================= */
+
+const db = new sqlite3.Database("/tmp/news.db");
 
 db.serialize(() => {
   db.run(`
@@ -25,7 +27,6 @@ db.serialize(() => {
     )
   `);
 });
-
 /* ================= HELPERS ================= */
 
 function clean(t = "") {
